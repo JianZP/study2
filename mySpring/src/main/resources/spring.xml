@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 1.哪些类需要管理
+     2.怎么告诉我这些类(写bean标签)
+     3.怎么维护依赖关系（set方法和constructor方法）
+     4.怎么体现set和constructor
+-->
+<beans default="byType">
+   <bean id="userDao" class="com.zj.dao.UserDaoImpl"></bean>
+    <bean id="userDao1" class="com.zj.dao.UserDaoImpl1"></bean>
+    <bean id="service" class="com.zj.service.UserServiceImpl">
+        <!-- 就是setter方法-->
+        <property name="userDao" ref="userDao1"></property>
+<!--        构造方法-->
+<!--        <constructor-arg name="userDao" ref="userDao"></constructor-arg>-->
+
+    </bean>
+</beans>
